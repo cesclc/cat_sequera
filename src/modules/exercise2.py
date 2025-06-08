@@ -5,10 +5,10 @@ import re
 
 noms_columnes = {
     'Dia': 'dia',
-    'Estacio': 'estacio',
-    'Nivell_msnm': 'nivell_msnm',
-    'Nivell_perc': 'nivell_perc',
-    'Volum': 'volum'
+    'Estació': 'estacio',
+    'Nivell absolut (msnm)': 'nivell_msnm',
+    'Percentatge volum embassat (%)': 'nivell_perc',
+    'Volum embassat (hm3)': 'volum'
 }
 
 

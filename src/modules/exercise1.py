@@ -17,7 +17,7 @@ def carrega_dataset(path: Path) -> pd.DataFrame:
     pd.DataFrame
         DataFrame amb les dades carregades.
     """
-    df = pd.read_csv(path, sep=";")
+    df = pd.read_csv(path, sep=",")
     return df
 
 

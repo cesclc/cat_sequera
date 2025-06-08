@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-ALUMNE = "Nom Alumne"
+ALUMNE = "Francesc Lucas Carbo"
 
 
 def converteix_datetime(df: pd.DataFrame) -> pd.DataFrame:
