@@ -1,6 +1,7 @@
 """Funcions de l'exercici 1: carregar el dataset i EDA."""
 from pathlib import Path
 import pandas as pd
+import io
 
 
 def carrega_dataset(path: Path) -> pd.DataFrame:
@@ -32,6 +33,6 @@ def columnes(df: pd.DataFrame) -> list[str]:
 
 def info_dataframe(df: pd.DataFrame) -> str:
     """Retorna la informació del DataFrame."""
-    buffer = []
+    buffer = io.StringIO()
     df.info(buf=buffer)
-    return "\n".join(str(line) for line in buffer)
+    return buffer.getvalue()
