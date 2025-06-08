@@ -36,5 +36,10 @@ def aplica_neteja_noms(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def filtra_baells(df: pd.DataFrame) -> pd.DataFrame:
-    """Filtra les dades corresponents a La Baells."""
-    return df[df['estacio'] == 'La Baells'].copy()
+    """Filtra les dades corresponents a La Baells.
+
+    La funció ``neteja_nom_estacio`` pot deixar el nom de l'estació en minúscules
+    (``"la Baells"``). Per assegurar que el filtratge sempre funcioni, es fa la
+    comparació ignorant les majúscules/minúscules.
+    """
+    return df[df['estacio'].str.lower() == 'la baells'].copy()
