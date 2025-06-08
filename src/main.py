@@ -11,8 +11,8 @@ DATA_PATH = Path(__file__).resolve().parent.parent / 'data' / 'embassaments.csv'
 IMG_DIR = Path(__file__).resolve().parent.parent / 'img'
 
 
-DEF_IMG = IMG_DIR / 'labaells_nom_alumne.png'
-DEF_IMG_SMOOTH = IMG_DIR / 'labaells_smoothed_nom_alumne.png'
+DEF_IMG = IMG_DIR / 'labaells_Francesc_Lucas_Carbo.png'
+DEF_IMG_SMOOTH = IMG_DIR / 'labaells_smoothed_Francesc_Lucas_Carbo.png'
 
 
 def exec_ex1() -> None:
@@ -43,7 +43,7 @@ def exec_ex3(df):
 
 
 def exec_ex4(df):
-    suau = exercise4.suavitza_senyal(df, window=3, poly=1)
+    suau = exercise4.suavitza_senyal(df, window=1500, poly=3)
     exercise4.grafica_suavitzada(df, suau, DEF_IMG_SMOOTH)
     return suau
 
