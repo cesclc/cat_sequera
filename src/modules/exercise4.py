@@ -8,22 +8,26 @@ from scipy.signal import savgol_filter
 from .exercise3 import ALUMNE
 
 
-def suavitza_senyal(df: pd.DataFrame, window: int = 1500, poly: int = 3) -> pd.Series:
+def suavitza_senyal(
+    df: pd.DataFrame, window: int = 1500, poly: int = 3
+) -> pd.Series:
     """Aplica el filtre Savitzky-Golay al senyal de percentatge."""
-    return pd.Series(savgol_filter(df['nivell_perc'], window_length=window, polyorder=poly), index=df.index)
+    filt = savgol_filter(df['nivell_perc'], window_length=window, polyorder=poly)
+    return pd.Series(filt, index=df.index)
 
 
 def grafica_suavitzada(df: pd.DataFrame, suau: pd.Series, path: Path) -> None:
     """Dibuixa la gràfica original i la suavitzada."""
-    plt.figure()
-    plt.plot(df['dia'], df['nivell_perc'], label='Original', alpha=0.5)
-    plt.plot(df['dia'], suau, label='Suavitzat', linewidth=3)
-    plt.xlabel('Data')
-    plt.ylabel('%')
-    plt.title('Volum La Baells')
-    plt.suptitle(ALUMNE)
-    plt.legend()
-    plt.tight_layout()
+    fig, ax = plt.subplots()
+    ax.plot(df['dia'], df['nivell_perc'], label='Original', alpha=0.5)
+    ax.plot(df['dia'], suau, label='Suavitzat', linewidth=3)
+    ax.set_xlabel('Data')
+    ax.set_ylabel('%')
+    ax.set_title('Volum La Baells', fontsize=18, pad=15)
+    ax.text(0.5, 0.93, ALUMNE, transform=ax.transAxes,
+            ha='center', va='top', fontsize=12)
+    ax.legend()
+    fig.tight_layout()
     path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(path)
-    plt.close()
+    fig.savefig(path)
+    plt.close(fig)
