@@ -13,7 +13,7 @@ ALUMNE = "Francesc Lucas Carbo"
 
 def converteix_datetime(df: pd.DataFrame) -> pd.DataFrame:
     """Converteix la columna dia a tipus datetime i ordena."""
-    df['dia'] = pd.to_datetime(df['dia'])
+    df['dia'] = pd.to_datetime(df['dia'], dayfirst=True)
     df = df.sort_values('dia').reset_index(drop=True)
     return df
 
