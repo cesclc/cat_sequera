@@ -21,12 +21,13 @@ def grafica_suavitzada(df: pd.DataFrame, suau: pd.Series, path: Path) -> None:
     fig, ax = plt.subplots()
     ax.plot(df['dia'], df['nivell_perc'], label='Original', alpha=0.5)
     ax.plot(df['dia'], suau, label='Suavitzat', linewidth=3)
-    ax.set_xlabel('Data')
-    ax.set_ylabel('%')
-    ax.set_title('Volum La Baells', fontsize=18, pad=15)
-    ax.text(0.5, 0.93, ALUMNE, transform=ax.transAxes,
-            ha='center', va='top', fontsize=12)
+    ax.set_xlabel('Temps (any)')
+    ax.set_ylabel('Volum (%)')
+    ax.set_title('Embassament de La Baells', fontsize=18, pad=15)
+    ax.text(0.5, 1.04, ALUMNE, transform=ax.transAxes,
+            ha='center', va='top', fontsize=10)
     ax.legend()
+    ax.grid()
     fig.tight_layout()
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path)

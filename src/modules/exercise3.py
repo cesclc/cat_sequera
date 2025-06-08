@@ -42,11 +42,12 @@ def grafica_volum(df: pd.DataFrame, path: Path) -> None:
     """Genera la gràfica del volum/percentatge al llarg del temps."""
     fig, ax = plt.subplots()
     ax.plot(df['dia'], df['nivell_perc'])
-    ax.set_xlabel('Data')
-    ax.set_ylabel('%')
-    ax.set_title('Volum La Baells', fontsize=18, pad=15)
-    ax.text(0.5, 0.93, ALUMNE, transform=ax.transAxes,
-            ha='center', va='top', fontsize=12)
+    ax.set_xlabel('Temps (any)')
+    ax.set_ylabel('Volum (%)')
+    ax.set_title('Embassament de La Baells', fontsize=18, pad=15)
+    ax.text(0.5, 1.04, ALUMNE, transform=ax.transAxes,
+            ha='center', va='top', fontsize=10)
+    ax.grid()
     fig.tight_layout()
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path)
