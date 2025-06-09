@@ -44,7 +44,7 @@ pytest --cov
 La documentació dels mòduls es pot generar amb **pdoc**:
 
 ```bash
-pdoc --html src -o doc
+pdoc src -o doc
 ```
 
 ## Qualitat del codi
