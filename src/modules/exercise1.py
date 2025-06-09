@@ -1,7 +1,7 @@
 """Funcions de l'exercici 1: carregar el dataset i EDA."""
 from pathlib import Path
-import pandas as pd
 import io
+import pandas as pd
 
 
 def carrega_dataset(path: Path) -> pd.DataFrame:
