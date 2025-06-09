@@ -11,6 +11,24 @@ import matplotlib.pyplot as plt
 ALUMNE = "Francesc Lucas Carbo"
 
 
+def configura_ax(ax: plt.Axes) -> None:
+    """Aplica configuració comuna a la gràfica."""
+    ax.set_xlabel('Temps (any)')
+    ax.set_ylabel('Volum (%)')
+    ax.set_title('Embassament de La Baells', fontsize=18, pad=15)
+    ax.text(0.5, 1.04, ALUMNE, transform=ax.transAxes,
+            ha='center', va='top', fontsize=10)
+    ax.grid()
+
+
+def guarda_figura(fig: plt.Figure, path: Path) -> None:
+    """Desa la figura i tanca-la."""
+    fig.tight_layout()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(path)
+    plt.close(fig)
+
+
 def converteix_datetime(df: pd.DataFrame) -> pd.DataFrame:
     """Converteix la columna dia a tipus datetime i ordena."""
     df['dia'] = pd.to_datetime(df['dia'], dayfirst=True)
@@ -42,13 +60,5 @@ def grafica_volum(df: pd.DataFrame, path: Path) -> None:
     """Genera la gràfica del volum/percentatge al llarg del temps."""
     fig, ax = plt.subplots()
     ax.plot(df['dia'], df['nivell_perc'])
-    ax.set_xlabel('Temps (any)')
-    ax.set_ylabel('Volum (%)')
-    ax.set_title('Embassament de La Baells', fontsize=18, pad=15)
-    ax.text(0.5, 1.04, ALUMNE, transform=ax.transAxes,
-            ha='center', va='top', fontsize=10)
-    ax.grid()
-    fig.tight_layout()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path)
-    plt.close(fig)
+    configura_ax(ax)
+    guarda_figura(fig, path)

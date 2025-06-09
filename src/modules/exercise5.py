@@ -1,6 +1,5 @@
 """Funcions de l'exercici 5: càlcul de períodes de sequera."""
 from typing import List
-from pandas import Series
 
 import pandas as pd
 
