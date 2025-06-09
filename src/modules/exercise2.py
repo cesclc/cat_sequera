@@ -1,6 +1,6 @@
 """Funcions de l'exercici 2: neteja i filtratge."""
-import pandas as pd
 import re
+import pandas as pd
 
 
 noms_columnes = {
