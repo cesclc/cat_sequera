@@ -54,3 +54,7 @@ Aquest projecte utilitza **pylint** per comprovar l'estil de codi:
 ```bash
 pylint src
 ```
+
+## Llicència
+
+Aquest projecte està disponible sota els termes de la [llicència MIT](LICENSE).
