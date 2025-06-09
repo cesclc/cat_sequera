@@ -18,7 +18,9 @@ def test_suavitza_senyal():
 
 
 def test_calcula_periodes():
-    df = pd.DataFrame({'dia_decimal': [2020.0, 2021.0, 2022.0]})
+    df = pd.DataFrame({'dia': [pd.Timestamp('2020-01-01'),
+                               pd.Timestamp('2021-01-01'),
+                               pd.Timestamp('2022-01-01')]})
     suau = pd.Series([70, 50, 70])
     periodes = calcula_periodes(df, suau, llindar=60)
-    assert periodes == [[2021.0, 2021.0]]
+    assert periodes == [[pd.Timestamp('2021-01-01'), pd.Timestamp('2021-01-01')]]

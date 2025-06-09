@@ -69,7 +69,8 @@ def exec_ex4(df):
 def exec_ex5(df, suau):
     """Executa l'exercici 5 i mostra els períodes de sequera."""
     periodes = exercise5.calcula_periodes(df, suau)
-    print("Períodes de sequera:", periodes)
+    formatats = [[ini.strftime("%d/%m/%Y"), fi.strftime("%d/%m/%Y")] for ini, fi in periodes]
+    print("Períodes de sequera:", formatats)
     return periodes
 
 
