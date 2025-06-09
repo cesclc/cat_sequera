@@ -19,6 +19,10 @@ DEF_IMG_SMOOTH = IMG_DIR / 'labaells_smoothed_Francesc_Lucas_Carbo.png'
 
 
 def exec_ex1() -> None:
+    """Executa les tasques de l'exercici 1 i retorna el ``DataFrame``.
+
+    Carrega el dataset i mostra per pantalla informació bàsica.
+    """
     df = exercise1.carrega_dataset(DATA_PATH)
     print(exercise1.mostra_head(df))
     print(exercise1.columnes(df))
@@ -29,6 +33,11 @@ def exec_ex1() -> None:
 
 
 def exec_ex2(df):
+    """Executa l'exercici 2 sobre el ``DataFrame`` rebut.
+
+    Reanomena columnes, neteja els noms de les estacions i filtra
+    exclusivament les dades de La Baells.
+    """
     df = exercise2.reanomena_columnes(df)
     print(exercise2.valors_unics_estacio(df))
     df = exercise2.aplica_neteja_noms(df)
@@ -37,6 +46,11 @@ def exec_ex2(df):
 
 
 def exec_ex3(df):
+    """Executa l'exercici 3 i retorna el ``DataFrame`` actualitzat.
+
+    Converteix les dates, mostra el rang temporal, afegeix la
+    representació decimal i genera la gràfica corresponent.
+    """
     df = exercise3.converteix_datetime(df)
     antig, nova = exercise3.rang_dates(df)
     print(f"Data inicial: {antig}, data final: {nova}")
@@ -46,18 +60,25 @@ def exec_ex3(df):
 
 
 def exec_ex4(df):
+    """Executa l'exercici 4 i torna la sèrie suavitzada."""
     suau = exercise4.suavitza_senyal(df, window=1500, poly=3)
     exercise4.grafica_suavitzada(df, suau, DEF_IMG_SMOOTH)
     return suau
 
 
 def exec_ex5(df, suau):
+    """Executa l'exercici 5 i mostra els períodes de sequera."""
     periodes = exercise5.calcula_periodes(df, suau)
     print("Períodes de sequera:", periodes)
     return periodes
 
 
 def main(args: argparse.Namespace) -> None:
+    """Punt d'entrada del programa.
+
+    Executa de manera seqüencial els exercicis indicats
+    per l'argument ``-ex`` de la línia d'ordres.
+    """
     df = None
     suau = None
     if args.ex is None or args.ex >= 1:
