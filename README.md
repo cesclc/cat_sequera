@@ -20,6 +20,8 @@ Per executar tots els exercicis de manera consecutiva:
 ```bash
 python -m src.main
 ```
+Cal utilitzar l'opció `-m` per executar-lo com a mòdul i assegurar que els
+imports relatius funcionen correctament.
 
 També es pot indicar un exercici concret amb l'opció `-ex`:
 

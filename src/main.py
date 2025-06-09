@@ -4,7 +4,10 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from modules import exercise1, exercise2, exercise3, exercise4, exercise5
+# Importa els mòduls utilitzant imports relatius per garantir
+# que funcionin tant en execucions locals com quan es fa
+# ``python -m src.main``
+from .modules import exercise1, exercise2, exercise3, exercise4, exercise5
 
 
 DATA_PATH = Path(__file__).resolve().parent.parent / 'data' / 'embassaments.csv'
