@@ -1,4 +1,4 @@
-# Projecte Seqüera
+# Projecte Embassament La Baells
 
 Aquest repositori conté el codi utilitzat a la PAC 4 de *Programació per a la ciència de dades*. L'objectiu és analitzar l'evolució del volum d'aigua a l'embassament de **La Baells** a partir de les dades històriques disponibles.
 
