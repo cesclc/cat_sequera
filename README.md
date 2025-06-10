@@ -55,6 +55,10 @@ Aquest projecte utilitza **pylint** per comprovar l'estil de codi:
 pylint src
 ```
 
+## Autor
+
+Francesc Lucas Carbo (flcarbo@uoc.edu).
+
 ## Llicència
 
 Aquest projecte està disponible sota els termes de la [llicència MIT](LICENSE).
