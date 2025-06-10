@@ -4,7 +4,9 @@ from typing import List
 import pandas as pd
 
 
-def calcula_periodes(df: pd.DataFrame, suau: pd.Series, llindar: float = 60.0) -> List[List[pd.Timestamp]]:
+def calcula_periodes(
+    df: pd.DataFrame, suau: pd.Series, llindar: float = 60.0
+    ) -> List[List[pd.Timestamp]]:
     """Calcula els períodes on el senyal suavitzat està per sota del llindar.
 
     Retorna una llista amb les dates d'inici i fi de cada període en format
